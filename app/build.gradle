@@ -14,10 +14,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    each { type ->
-        type.buildConfigField STRING, 'movieDbKey', MOVIE_DB_API_KEY
-        buildConfigField STRING_ARRAY, 'FitbitConfig', '{\"' + FitbitClientId + '\",' + FITBIT_API_KEY + '}'
-    }
+
     manifestPlaceHolders = [MOVIE_DB_API_KEY: 'Fabric Api key',
     ]
 }
@@ -26,8 +23,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            buildConfigField "String", 'movieDbKey', MOVIE_DB_API_KEY
+            buildConfigField "String[]", 'FitbitConfig', '{\"' + FitbitClientId + '\",' + FITBIT_API_KEY + '}'
+        }
     }
-
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
