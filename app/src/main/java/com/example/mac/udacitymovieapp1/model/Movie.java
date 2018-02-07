@@ -8,13 +8,10 @@ public class Movie {
 
     private String image_link;
     private String movieName;
-    private String poster_path;
 
-    public Movie(String image_link, String movieName, String poster_path) {
+    public Movie(String image_link, String movieName) {
         this.image_link = image_link;
         this.movieName = movieName;
-        this.poster_path = poster_path;
-
     }
 
     public String getImage_link() {
@@ -31,13 +28,5 @@ public class Movie {
 
     public void setMovieName(String movieName) {
         this.movieName = movieName;
-    }
-
-    public String getPoster_path() {
-        return poster_path;
-    }
-
-    public void setPoster_path(String poster_path) {
-        this.poster_path = poster_path;
     }
 }
